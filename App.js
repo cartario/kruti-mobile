@@ -1,14 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import MainNavigation from './src/navigation/MainNavigation';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>INIT project - Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [loaded, error] = useFonts({
+    'open-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+  });
+
+  if(!loaded){
+    return null;
+  }
+
+  // return (
+  //   <View style={styles.container}>
+  //     <Text style={{fontFamily: 'open-bold'}}>FONTS</Text>
+  //     <StatusBar style="auto" />
+  //   </View>
+  // );
+
+  return <MainNavigation />
 }
 
 const styles = StyleSheet.create({
