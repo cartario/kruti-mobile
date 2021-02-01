@@ -1,8 +1,21 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View, Button, StyleSheet} from 'react-native';
 
-const CreateScreen = () => {
-  return (<Text>CreateScreen</Text>)
+const CreateScreen = ({navigation}) => {
+  return (<View style={styles.center}>
+     <Text>CreateScreen</Text>
+    <Button title='go-back' onPress={()=>navigation.navigate('Home')}/>
+  </View>
+  
+ )
 };
 
 export default CreateScreen;
+
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center'
+  }
+});

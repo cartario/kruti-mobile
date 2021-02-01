@@ -1,8 +1,11 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, Button, View} from 'react-native';
 
-const AboutScreen = () => {
-  return (<Text>AboutScreen</Text>)
+const AboutScreen = ({navigation}) => {
+  return (<View>
+    <Text>AboutScreen</Text>
+    <Button title='go-back' onPress={()=>navigation.navigate('Home')}/>
+  </View>)
 };
 
 export default AboutScreen;

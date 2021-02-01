@@ -12,7 +12,7 @@ import {THEME} from '../theme';
 
 const Drawer = createDrawerNavigator();
 
-const MainNavigation = () => {
+const MainNavigation = ({navigation}) => {
   return (
     <NavigationContainer>
       <Drawer.Navigator 
