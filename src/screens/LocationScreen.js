@@ -2,7 +2,10 @@ import React from 'react';
 import {Text} from 'react-native';
 
 const LocationScreen = () => {
-  return (<Text>LocationScreen</Text>)
+  return (<View>
+    <Text>LocationScreen</Text>
+    
+  </View>)
 };
 
 export default LocationScreen;
