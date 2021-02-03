@@ -1,10 +1,10 @@
 import React from 'react';
 import { FlatList, View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 
-const Lesson = ({ id, price, title, onOpen }) => {
+const Lesson = ({ id, price, title, onOpen, color }) => {
   return (
     <View >
-      <TouchableOpacity style={styles.circle} onPress={onOpen}>       
+      <TouchableOpacity style={{...styles.circle, backgroundColor: color}} onPress={onOpen}>       
         <Text style={styles.title}>{title}</Text>       
       </TouchableOpacity>
     </View>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,  
     padding: 10,  
     borderRadius: 50,
-    backgroundColor: 'red',
+    backgroundColor: 'lightgrey',
   },
   title: {
     textAlign: 'center'

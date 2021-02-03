@@ -1,16 +1,21 @@
 import React from 'react';
-import { Text, Button, View, StyleSheet, FlatList} from 'react-native';
-import InfoModal from '../components/InfoModal';
+import { Text, View, StyleSheet, FlatList } from 'react-native';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionCreators } from '../store/actions/lessons';
-import Lesson from '../components/Lesson';
 
-const HomeScreen = ({ navigation, route }) => {
+import Level from '../components/Level';
+
+const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const lessons = useSelector(({ lessons }) => lessons.items);
+  const levels = [... new Set(lessons.map((item)=>item.level))];  
 
-  const onOpenItem = () => {
-    navigation.navigate('Lesson');
+  const handleOpen = (lesson) => {
+    navigation.navigate('Lesson', {
+      lessonId: lesson.id,
+      lessonBooked: lesson.booked,
+    });
   };
 
   React.useEffect(() => {
@@ -20,36 +25,13 @@ const HomeScreen = ({ navigation, route }) => {
   return (
     <View style={styles.center}>
       <Text>LessonsScreen</Text>
-
-      <View style={styles.level}>
-        <Text>Level 1</Text>
-      </View>
-
-      <View style={styles.list}>
-        {lessons.map((item) => (
-          <Lesson {...item} onOpen={onOpenItem}  key={item.id}/>
-        ))}
-      </View>
-
-      <View style={styles.level}>
-        <Text>Level 2</Text>
-      </View>
-
-      <View style={styles.list}>
-        {lessons.map((item) => (
-          <Lesson {...item} onOpen={onOpenItem}  key={item.id}/>
-        ))}
-      </View>
-
-      <View style={styles.level}>
-        <Text>Level 3</Text>
-      </View>
-
-      <View style={styles.list}>
-        {lessons.map((item) => (
-          <Lesson {...item} onOpen={onOpenItem} key={item.id}/>
-        ))}
-      </View>
+      
+     <FlatList 
+      data={levels}
+      keyExtractor={(levels)=>Math.random().toString()}
+      renderItem={({item})=><Level title={item} lessons={lessons.filter((lesson)=>lesson.level===item)} onOpen={handleOpen}/>}
+     />
+      
     </View>
   );
 };
@@ -59,19 +41,5 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   center: {
     alignItems: 'center',
-  },
-  level: {
-    alignItems: 'center',
-    width: '50%',
-    padding: 10,
-    borderWidth: 2,
-    borderColor: 'grey',
-  },
-  list: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    width: 300,
-    marginTop: 20,
-  },
+  }
 });

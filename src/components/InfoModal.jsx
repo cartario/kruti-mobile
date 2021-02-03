@@ -1,45 +1,64 @@
-import React from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import React from 'react';
+import { Alert, Modal, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; 
+import {THEME} from '../theme';
 
-const InfoModal = ({visible, onCancel}) => {
-  return (<Modal
-    animationType="slide"
-    transparent={true}
-    visible={visible}    
-  >
-    
+const InfoModal = ({ visible, onCancel }) => {
+  return (
+    <Modal animationType="slide" transparent={true} visible={visible} style={styles.modal}>
       <View style={styles.center}>
-        <Text>Hello World!</Text>
-
-        <TouchableHighlight
-         
+      <TouchableHighlight
           onPress={() => {
-            onCancel(false)
-            
+            onCancel(false);
           }}
-        >
-          <Text >Hide Modal</Text>
+        >          
+          <Ionicons name="close-circle" size={24} color={THEME.MAIN_COLOR} />
         </TouchableHighlight>
+        <Text style={styles.header}>Как пользоваться приложением? </Text>
+        <View style={styles.text}>
+          <Text>
+            1. Смотри туториал          
+          </Text>
+          <Text>           
+            2. Жми start и повторяй движения          
+          </Text>
+          <Text>         
+            3. Поставь  себе оценку, двигайся дальше.         
+          </Text>
+          <Text>          
+            4.Удачи и процветания! У тебя все получится!
+          </Text>   
+        </View>              
       </View>
-    
-  </Modal>)
+    </Modal>
+  );
 };
 
 export default InfoModal;
 
 const styles = StyleSheet.create({
+  modal: {
+    padding: 15
+  },
   center: {
-    flex:1,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 42,
-    backgroundColor: '#a1b2c3'
+    padding: 15,
+    backgroundColor: '#fff',
+  },
+  header: {
+    marginBottom: 20,
+    fontWeight: 'bold',
+    fontSize: 24,
+    color: THEME.ORANGE_COLOR
+  },
+  closeModal: {
+    margin: 20,
+    fontWeight: 'bold'
+  },
+  text: {
+    textAlign: 'left'
   }
-})
+});

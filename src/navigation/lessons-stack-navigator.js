@@ -1,9 +1,12 @@
 import React from 'react';
-import { Text, Button, View } from 'react-native';
+import { Text, Button, View, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import LessonScreen from '../screens/LessonScreen';
 import InfoModal from '../components/InfoModal';
+import { useSelector } from 'react-redux';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { AppHeaderIcon } from '../components/AppHederIcon';
 
 const Stack = createStackNavigator();
 
@@ -14,21 +17,22 @@ export const LessonsNavigator = ({ navigation }) => {
     <Stack.Navigator>
       <Stack.Screen
         options={{
+          title: 'Lessons',
           headerRight: () => {
             return (
-              <View>
-                <Button
-                title="info"
-                onPress={() => {
-                  setModal(true)
-                }}
-              />
-              <InfoModal visible={modal} onCancel={setModal}/>
-              </View>
+              
+              <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+                <Item iconName="information-circle" onPress={() => setModal(true)} />   
+                <InfoModal visible={modal} onCancel={setModal} />             
+              </HeaderButtons>
             );
           },
           headerLeft: () => {
-            return <Button title="menu" onPress={() => navigation.toggleDrawer()} />;
+            return (
+              <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+                <Item title="menu" iconName="menu" onPress={() => navigation.toggleDrawer()} />                
+              </HeaderButtons>
+            );
           },
         }}
         name="Lessons"
