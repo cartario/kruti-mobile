@@ -1,9 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+
 import Lesson from '../components/Lesson';
+
 import {THEME} from '../theme';
 
 const Level = ({ lessons , title, onOpen}) => {
+  
   const colors = THEME.BACKGROUNDS_COLORS;
   const lessonsWithColors = lessons.map((lesson, index)=>{
     return {...lesson, color: colors[index]}

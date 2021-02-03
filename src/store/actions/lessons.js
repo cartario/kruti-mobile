@@ -6,4 +6,8 @@ export const ActionCreators = {
     type: ACTION_TYPES.LOAD_LESSONS,
     payload: DATA.lessons
   }),
+  toggleBooked: (id)=>({
+    type: ACTION_TYPES.TOGGLE_BOOKED_LESSONS,
+    payload: id
+  })
 }

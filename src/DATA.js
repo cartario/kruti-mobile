@@ -13,35 +13,35 @@ export const DATA = {
     },
     {
       id: Math.random().toString(),
-      title: 'test2',
+      title: 'sixstep',
       price: '400',
       booked: true,
       level: 1
     },
     {
       id: Math.random().toString(),
-      title: 'test3',
+      title: 'freeze',
       price: '500',
       booked: false,
       level: 1
     },
     {
       id: Math.random().toString(),
-      title: 'test4',
+      title: 'headspin',
       price: '500',
       booked: false,
       level: 1
     },
     {
       id: Math.random().toString(),
-      title: 'test5',
+      title: 'elbowspin',
       price: '500',
       booked: false,
       level: 2
     },
     {
       id: Math.random().toString(),
-      title: 'test5',
+      title: 'windmill',
       price: '500',
       booked: false,
       level: 1
