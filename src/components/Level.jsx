@@ -19,7 +19,7 @@ const Level = ({ lessons , title, onOpen}) => {
       </View>
       <View style={styles.list}>
         {lessonsWithColors.map((item) => (
-          <Lesson {...item} onOpen={() => onOpen(item)} key={item.id} />
+          <Lesson {...item} onOpen={() => onOpen(item)} key={item.id} levelNumber={title}/>
         ))}
       </View>
     </View>

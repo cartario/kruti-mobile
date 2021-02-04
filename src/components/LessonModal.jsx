@@ -8,10 +8,13 @@ import {
   View
 } from "react-native";
 import {useSelector} from 'react-redux';
+import Tutorial from '../components/Tutorial';
+import StartVideo from '../components/StartVideo';
+import {THEME} from '../theme';
 
-const LessonModal = ({title, id}) => {
+const LessonModal = ({title, id, type='tutorial', goBack}) => {
   const [modalVisible, setModalVisible] = useState(false);  
-  const lessons = useSelector(({lessons})=>lessons.items);
+  const lesson = useSelector(({lessons})=>lessons.items).find((item)=>item.id===id);
 
   return (
     <View style={styles.centeredView}>
@@ -25,15 +28,17 @@ const LessonModal = ({title, id}) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>{title.repeat(100)}</Text>
+            <Text style={styles.modalText}>{
+              type==='start' ? <StartVideo lesson={lesson} goBack={setModalVisible}/> : <Tutorial lesson={lesson}/>
+            }</Text>
 
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              style={{ ...styles.openButton}}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Закрыть {type} </Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -59,6 +64,7 @@ const styles = StyleSheet.create({
     marginTop: 22
   },
   modalView: {
+    justifyContent: 'space-between',
     height: '70%',
     margin: 20,
     backgroundColor: "white",
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "#F194FF",
+    backgroundColor: THEME.ORANGE_COLOR ,
     borderRadius: 20,
     padding: 10,
     elevation: 2

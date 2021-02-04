@@ -29,8 +29,12 @@ const HomeScreen = ({ navigation }) => {
 
   React.useEffect(()=>{
     // console.log(lessons)
-  }, [lessons])
+  }, [lessons]);
 
+  if(!lessons.length){
+    return null
+  }
+  
   return (
     <View style={styles.center}>
       <Text>LessonsScreen</Text>
