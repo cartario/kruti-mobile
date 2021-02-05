@@ -3,30 +3,52 @@ import {Text, Button} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import EventsScreen from '../screens/EventsScreen';
 import EventScreen from '../screens/EventScreen';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { AppHeaderIcon } from '../components/AppHederIcon';
+import InfoModal from '../components/InfoModal';
 
 const Stack = createStackNavigator();
 
 export const EventsStackNavigator = ({navigation}) => {
+
+  const handleToggleBooked = (id) => {
+    // console.log('click booked, id:', id)//dispatch here
+    // dispatch(ActionCreators.toggleBooked(id))
+  }
+  
   return (
-    <Stack.Navigator
-    
-    >
+    <Stack.Navigator>
       <Stack.Screen 
       options={{
-        headerRight: ()=>{
-          return <Text>info</Text>
+        headerRight: () => {
+          return (            
+            <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+              <Item iconName="create-outline" onPress={() => navigation.navigate('Create')} />                         
+            </HeaderButtons>
+          );
         },
-        headerLeft: ()=>{
-          return <Button title='menu' onPress={()=>navigation.toggleDrawer()}/>
+        headerLeft: () => {
+          return (
+            <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+              <Item title="menu" iconName="menu" onPress={() => navigation.toggleDrawer()} />                
+            </HeaderButtons>
+          );
         },
       }}
       name="Events" component={EventsScreen} />
       <Stack.Screen 
-      options={{
-        headerRight: ()=>{
-          return <Text>Star(booked)</Text>
-        }
-      }}
+      options={({navigation, route})=>({
+        title: route.params.eventTitle,
+        headerRight: () => {
+          
+          return (<HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+            <Item title="menu" iconName={route.params.eventBooked? 'star' : 'star-outline'} onPress={()=>{
+              handleToggleBooked(route.params.eventId);
+              navigation.setParams({eventBooked: !route.params.eventBooked});
+            }} />                
+          </HeaderButtons>);
+        },
+      })}
       name="Event" component={EventScreen} />
     </Stack.Navigator>
   );

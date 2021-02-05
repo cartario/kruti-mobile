@@ -2,12 +2,12 @@ import React from 'react';
 import { Button, View } from 'react-native';
 import { Audio } from 'expo-av';
 
-const audioUrls = [
-  'https://res.cloudinary.com/dxioiveim/video/upload/v1610205678/kruti-verti/online/music/Erik_B._and_Rakim_-_Dont_Sweat_The_Technique_p29fmc.mp3',
-  'https://res.cloudinary.com/dxioiveim/video/upload/v1610202443/kruti-verti/online/music/attache_-_bassbin_ballerina_ynsug5.mp3',
-  'https://res.cloudinary.com/dxioiveim/video/upload/v1610205544/kruti-verti/online/music/Boogie_Down_Productions_-_Jack_of_Spades_krcwtc.mp3',
-  'https://res.cloudinary.com/dxioiveim/video/upload/v1610205533/kruti-verti/online/music/Show_A.G._-_Next_Level_l2ejyr.mp3',
-  'https://res.cloudinary.com/dxioiveim/video/upload/v1610205529/kruti-verti/online/music/Fdel_-_Get_Up_On_Ya_Feet_w0v4i5.mp3',
+const audioUrls= [
+  "https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424251/music/Erik_B._and_Rakim_-_Dont_Sweat_The_Technique_p29fmc_dvjeiw.mp3",
+  "https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424286/music/attache_-_bassbin_ballerina_ynsug5_cmsayb.mp3",
+  "https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424229/music/Boogie_Down_Productions_-_Jack_of_Spades_krcwtc_wfb7u6.mp3",
+  "https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424286/music/Show_A.G._-_Next_Level_l2ejyr_unjq90.mp3",
+  "https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424346/music/Fdel_-_Get_Up_On_Ya_Feet_w0v4i5_zyn1ii.mp3"
 ];
 
 const RANDOM_AUDIO_URL = audioUrls[Math.floor(Math.random() * audioUrls.length)];

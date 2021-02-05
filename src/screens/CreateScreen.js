@@ -4,7 +4,7 @@ import {Text, View, Button, StyleSheet} from 'react-native';
 const CreateScreen = ({navigation}) => {
   return (<View style={styles.center}>
      <Text>CreateScreen</Text>
-    <Button title='go-back' onPress={()=>navigation.navigate('Home')}/>
+    <Button title='go-back' onPress={()=>navigation.goBack()}/>
   </View>
   
  )

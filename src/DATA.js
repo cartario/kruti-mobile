@@ -10,8 +10,8 @@ export const DATA = {
       price: '300',
       booked: true,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -19,8 +19,8 @@ export const DATA = {
       price: '400',
       booked: true,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -28,8 +28,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -37,8 +37,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -46,8 +46,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 2,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -55,8 +55,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -64,8 +64,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 1,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -73,8 +73,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 3,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     {
       id: Math.random().toString(),
@@ -82,8 +82,8 @@ export const DATA = {
       price: '500',
       booked: false,
       level: 3,
-      tutorialUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173177/kruti-verti/tutorial-sixstep_recjhz.mp4',
-      practiceUrl: 'https://res.cloudinary.com/dxioiveim/video/upload/v1610173171/kruti-verti/training-sixstep_cum6xo.mp4'
+      tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
+      practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     
   ]

@@ -5,8 +5,8 @@ import AppAudio from './Audio';
 import Timer from './Timer';
 import Result from './Result';
  
-const READY_TIME = 1000;
-const PRACTICE_TIME = 1000;
+const READY_TIME = 5000;
+const PRACTICE_TIME = 5000;
 
 const StartVideo = ({ lesson , goBack}) => {
   const [isReady, setReady] = React.useState(false);  
@@ -30,7 +30,7 @@ const StartVideo = ({ lesson , goBack}) => {
         </View>
       ) : (<>
         <Timer time={PRACTICE_TIME / 1000} handler={setShowResult}/>
-        {/* <Video
+        <Video
           source={{ uri: lesson.practiceUrl }}
           rate={1.0}
           volume={1.0}
@@ -39,8 +39,8 @@ const StartVideo = ({ lesson , goBack}) => {
           shouldPlay
           isLooping
           style={{ width: 300, height: 300 }}
-        /> */}
-        {/* <AppAudio /> */}
+        />
+        <AppAudio />
         {showResult&&<Result goBack={goBack}/>}
         </>
       )}

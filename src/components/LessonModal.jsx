@@ -16,6 +16,25 @@ const LessonModal = ({title, id, type='tutorial', goBack}) => {
   const [modalVisible, setModalVisible] = useState(false);  
   const lesson = useSelector(({lessons})=>lessons.items).find((item)=>item.id===id);
 
+  const handleClose = ()=>{
+    Alert.alert(
+      "Уже сдаешься?",
+      "Вы действительно хотите закрыть?",
+      [
+        {
+          text: "Отмена",          
+          style: 'cancel'
+        },
+        { 
+          text: "Закрыть", 
+          onPress: ()=>setModalVisible(!modalVisible),
+          style: 'destructive'        
+        }
+      ],
+      { cancelable: false }
+    );    
+  }
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -34,9 +53,7 @@ const LessonModal = ({title, id, type='tutorial', goBack}) => {
 
             <TouchableHighlight
               style={{ ...styles.openButton}}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
+              onPress={handleClose}
             >
               <Text style={styles.textStyle}>Закрыть {type} </Text>
             </TouchableHighlight>
