@@ -3,5 +3,6 @@ export const THEME = {
   ORANGE_COLOR: '#fd6c20',
   BACKGROUNDS_COLORS: [
     'red', 'cyan', 'orange', 'tomato', 'green', 'brown'
-  ]
+  ],
+  DANGER_COLOR: '#e53935',
 }

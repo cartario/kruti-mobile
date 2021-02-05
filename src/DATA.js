@@ -1,3 +1,46 @@
+const events = [
+  {
+    id: Math.random().toString(),
+    title: 'All options',
+    date: new Date().toJSON(),
+    posterUrl: 'https://res.cloudinary.com/dwhyb2a2q/image/upload/v1612554121/events/allOptions.jpg',   
+    price: 'Бесплатно' ,
+    booked: false,  
+    address: 'moscow',
+    link: 'https://',
+  },
+  {
+    id: Math.random().toString(),
+    title: 'All options2',
+    date: new Date().toJSON(),
+    posterUrl: 'https://res.cloudinary.com/dwhyb2a2q/image/upload/v1612554121/events/allOptions.jpg', 
+    price: 'Бесплатно'  ,
+    booked: false,  
+    address: 'moscow',
+    link: 'https://',
+  },
+  {
+    id: Math.random().toString(),
+    title: 'All options3',
+    date: new Date().toJSON(),
+    posterUrl: 'https://res.cloudinary.com/dwhyb2a2q/image/upload/v1612554121/events/allOptions.jpg',  
+    price: 'Бесплатно' ,
+    booked: true,       
+    address: 'moscow',
+    link: 'https://', 
+  },
+  {
+    id: Math.random().toString(),
+    title: 'All options4',
+    date:  new Date().toJSON(),
+    posterUrl: 'https://res.cloudinary.com/dwhyb2a2q/image/upload/v1612554121/events/allOptions.jpg',  
+    price: 'Бесплатно'  ,
+    booked: true,  
+    address: 'moscow',
+    link: 'https://',
+  }
+];
+
 export const DATA = {
   user: {
     level: 1,
@@ -86,5 +129,6 @@ export const DATA = {
       practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
     },
     
-  ]
+  ],
+  events
 };
