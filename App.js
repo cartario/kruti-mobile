@@ -20,7 +20,10 @@ export default function App() {
   //   </View>
   // );
 
-  return <MainNavigation />
+  return (<>
+  <MainNavigation />
+  <StatusBar style="auto" />
+  </>)
 }
 
 const styles = StyleSheet.create({

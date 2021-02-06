@@ -1,10 +1,9 @@
 import { ACTION_TYPES } from '../types';
-import { DATA } from '../../DATA';
 
 export const ActionCreators = {
-  loadEvents: () => ({
+  loadEvents: (events=[]) => ({
     type: ACTION_TYPES.LOAD_EVENTS,
-    payload: DATA.events,
+    payload: events,
   }),
   toggleBooked: (id) => ({
     // type: ACTION_TYPES.TOGGLE_BOOKED_LESSONS,
@@ -22,4 +21,5 @@ export const ActionCreators = {
     type: ACTION_TYPES.ADD_EVENT,
     payload: event,
   }),
+  
 };

@@ -28,7 +28,7 @@ export const LessonsNavigator = ({ navigation }) => {
     <Stack.Navigator>
       <Stack.Screen
         options={{
-          headerTitle: ()=><HeaderTitleHome />,
+          headerTitle: ()=><HeaderTitleHome />,          
           headerRight: () => {
             return (
               

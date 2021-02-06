@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Button, StyleSheet, Alert} from 'react-native';
+import {Text, View, ScrollView, Button, StyleSheet, Alert, Keyboard} from 'react-native';
 import AppFieldsEvent from '../components/AppFieldsEvent';
 import { THEME } from '../theme';
 import {useSelector, useDispatch} from 'react-redux';
@@ -17,8 +17,7 @@ const initialData = {
 const CreateScreen = ({navigation}) => {
   const [form, setForm] = React.useState(initialData);
   const {isLoaded, isSuccessAdded} = useSelector(({events})=>events);
-  const dispatch = useDispatch();
-  
+  const dispatch = useDispatch();  
 
   const isValid = form.title.length<=3 || form.link.length <=3;
 
@@ -34,11 +33,9 @@ const CreateScreen = ({navigation}) => {
         },
         {
           text: 'Сохранить',
-          onPress: () => {
-            console.log(form);           
+          onPress: () => {                    
             dispatch(Operations.addEvent(form));
-            setForm(initialData);
-            //dispatch here and show tost
+            setForm(initialData);            
           },
           style: 'destructive',
         },
@@ -56,6 +53,7 @@ const CreateScreen = ({navigation}) => {
     {isSuccessAdded && <Text style={styles.tost}>Успешно отправлено</Text>}
     <Button title={isLoaded ? 'Добавление...' : 'Добавить'} onPress={handleSave} disabled={isValid || isLoaded}/>
     <Button title='Очистить' color={THEME.DANGER_COLOR} onPress={()=>setForm(initialData)}/>
+  
   </View>  
  )
 };

@@ -1,14 +1,17 @@
 import React from 'react';
-import { View, Image, StyleSheet, Button, Alert , Text} from 'react-native';
-import { useSelector } from 'react-redux';
+import { ScrollView, Image, StyleSheet, Button, Alert , Text} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { THEME } from '../theme';
 import AppFieldsEvent from '../components/AppFieldsEvent';
+import {Operations} from '../store/operations/events';
 
 const EventScreen = ({ route }) => {
   const eventId = route.params.eventId;
   const event = useSelector(({ events }) => events.items).find((item) => item.id === eventId);
   const [form, setForm] = React.useState(event);
   const [editMode, setEditMode] = React.useState(false);
+  const {isSuccessAdded} = useSelector(({events})=>events);
+  const dispatch = useDispatch();
 
   const handleCancel = () => {
     setForm(event);
@@ -29,6 +32,7 @@ const EventScreen = ({ route }) => {
           text: 'Сохранить',
           onPress: () => {
             setEditMode(false);
+            dispatch(Operations.addEventToUpdateList(event))
           },
           style: 'destructive',
         },
@@ -40,7 +44,7 @@ const EventScreen = ({ route }) => {
   const handleDelete = () => {
     Alert.alert(
       'Удаление',
-      'Вы действительно хотите отправить заявку на удалить?',
+      'Вы действительно хотите отправить заявку на удаление?',
       [
         {
           text: 'Отмена',
@@ -48,7 +52,9 @@ const EventScreen = ({ route }) => {
         },
         {
           text: 'Удалить',
-          onPress: () => console.log('close'),
+          onPress: ()=>{
+            dispatch(Operations.addEventToRemoveList(event))
+          },
           style: 'destructive',
         },
       ],
@@ -61,8 +67,9 @@ const EventScreen = ({ route }) => {
   }
 
   return (
-    <View>
+    <ScrollView>
       <Image style={styles.img} source={{ uri: event.posterUrl }} />
+      {isSuccessAdded && <Text style={styles.tost}>Успешно отправлено</Text>}
       {editMode&&<Text style={styles.editModeInfo}>Редактирование</Text>}
       <AppFieldsEvent event={event} editMode={editMode} form={form} setForm={setForm} />
       {editMode ? (
@@ -72,7 +79,7 @@ const EventScreen = ({ route }) => {
       )}
       {editMode&&<Button title="CANCEL" color={THEME.MAIN_COLOR} onPress={handleCancel} />}
       <Button title="DELETE" color={THEME.DANGER_COLOR} onPress={handleDelete} />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -88,5 +95,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     backgroundColor: THEME.DANGER_COLOR
+  },
+  tost: {
+    width: '100%',
+    padding: 10,
+    textAlign: 'center',
+    backgroundColor: 'green',
+    color: 'white',
   }
 });

@@ -1,13 +1,24 @@
 import React from 'react';
-import { Text, Button, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, RefreshControl} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Operations } from '../store/operations/events';
 import AppLoader from '../components/AppLoader';
-import Event from '../components/Event'
+import Event from '../components/Event';
 
 const EventsScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const { items: events, isLoaded } = useSelector(({ events }) => events);
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true);
+    try {
+      dispatch(Operations.fetchItems());      
+      setRefreshing(false)
+    } catch (error) {
+      console.error(error);
+    }
+  }, [refreshing]);
 
   const handleOpen = (event) => {
     navigation.navigate('Event', {
@@ -33,14 +44,19 @@ const EventsScreen = ({ navigation }) => {
     );
   }
 
-  return (
+  return (<>
+  
     <View style={styles.wrap}>
+      
       <FlatList
         keyExtractor={(item) => item.id}
         data={events}
         renderItem={({ item }) => <Event event={item} onOpen={()=>handleOpen(item)}/>}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
       />
-    </View>
+    </View></>
   );
 };
 

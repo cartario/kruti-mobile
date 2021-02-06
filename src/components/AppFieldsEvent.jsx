@@ -1,8 +1,15 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import Clipboard from 'expo-clipboard';
 import DatePicker from '../components/DatePicker';
 
 const AppFieldsEvent = ({ editMode, form, setForm }) => {
+  
+
+  const copyToClipboard = async(value) => {
+    await Clipboard.setString(value); 
+  }
+
   return (
     <View>
       <View style={styles.textWrap}>
@@ -72,7 +79,13 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
         </View>
 
         <View style={styles.field}>
-          <Text style={styles.label}>Ссылка*</Text>
+          {/* <Text style={styles.label}>Ссылка*</Text> */}
+          <TouchableOpacity
+            style={styles.label}
+            onPress={()=>copyToClipboard(form.link)} 
+        >
+          <Text style={styles.btnLink}>Скопировать ссылку</Text>
+        </TouchableOpacity>
           <TextInput
             style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
             multiline
@@ -83,7 +96,7 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
             defaultValue={form.link}
             onChangeText={(text) => setForm({ ...form, link: text })}
             editable={editMode}
-          />
+          />          
         </View>
       </View>
     </View>
@@ -114,6 +127,10 @@ const styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'transparent',
   },
+
+  btnLink: {
+    
+  }
 });
 
 export default AppFieldsEvent;
