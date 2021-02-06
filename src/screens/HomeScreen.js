@@ -7,9 +7,11 @@ import { ActionCreators as ActionCreatorsUser } from '../store/actions/user';
 
 import Level from '../components/Level';
 
+import AppLoader from '../components/AppLoader';
+
 const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-  const lessons = useSelector(({ lessons }) => lessons.items);  
+  const {items: lessons, isLoaded} = useSelector(({ lessons }) => lessons);  
   const levels = [... new Set(lessons.map((item)=>item.level))];  
 
   
@@ -31,8 +33,12 @@ const HomeScreen = ({ navigation }) => {
     // console.log(lessons)
   }, [lessons]);
 
-  if(!lessons.length){
-    return null
+  // if(!lessons.length){
+  //   return null
+  // }
+
+  if(isLoaded){
+    return <AppLoader />
   }
   
   return (
@@ -43,8 +49,7 @@ const HomeScreen = ({ navigation }) => {
       data={levels}
       keyExtractor={(levels)=>Math.random().toString()}
       renderItem={({item})=><Level title={item} lessons={lessons.filter((lesson)=>lesson.level===item)} onOpen={handleOpen}/>}
-     />
-      
+     />      
     </View>
   );
 };

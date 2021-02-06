@@ -10,8 +10,6 @@ const EventScreen = ({ route }) => {
   const [form, setForm] = React.useState(event);
   const [editMode, setEditMode] = React.useState(false);
 
-  console.log(form)
-
   const handleCancel = () => {
     setForm(event);
     setEditMode(false);    

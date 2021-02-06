@@ -1,20 +1,20 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TextInput } from 'react-native';
 import DatePicker from '../components/DatePicker';
 
 const AppFieldsEvent = ({ editMode, form, setForm }) => {
-  
   return (
     <View>
       <View style={styles.textWrap}>
-        
-          {editMode&&
-          <DatePicker initialDate={form.date} onDateChange={(date)=>setForm({ ...form, date: date.toJSON()})} />
-          }
-        
+        {editMode && (
+          <DatePicker
+            initialDate={form.date}
+            onDateChange={(date) => setForm({ ...form, date: date.toJSON() })}
+          />
+        )}
 
         <View style={styles.field}>
-          <Text style={styles.label}>Название</Text>
+          <Text style={styles.label}>Название*</Text>
           <TextInput
             style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
             placeholder="введите текст"
@@ -27,21 +27,21 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
           />
         </View>
 
-        {!editMode &&
-        <View style={styles.field}>
-        <Text style={styles.label}>Дата</Text>
-        <TextInput
-          style={editMode ? styles.input : {...styles.input, ...styles.inputDisabled}}
-          placeholder="введите текст"
-          autoCapitalize="none"
-          autoCorrect={false}
-          maxLength={64}
-          defaultValue={new Date(form.date).toLocaleDateString()}
-          onChangeText={(text)=>setForm({ ...form, date: text })}
-          editable={editMode}
-        />
-      </View>
-        }
+        {!editMode && (
+          <View style={styles.field}>
+            <Text style={styles.label}>Дата</Text>
+            <TextInput
+              style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
+              placeholder="введите текст"
+              autoCapitalize="none"
+              autoCorrect={false}
+              maxLength={64}
+              defaultValue={new Date(form.date).toLocaleDateString()}
+              onChangeText={(text) => setForm({ ...form, date: text })}
+              editable={editMode}
+            />
+          </View>
+        )}
 
         <View style={styles.field}>
           <Text style={styles.label}>Адрес</Text>
@@ -72,7 +72,7 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
         </View>
 
         <View style={styles.field}>
-          <Text style={styles.label}>Ссылка</Text>
+          <Text style={styles.label}>Ссылка*</Text>
           <TextInput
             style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
             multiline
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderColor: 'grey',
     borderBottomWidth: 2,
-    color: '#fff',
-    backgroundColor: 'black',
+    color: 'black',
+    backgroundColor: '#fff',
   },
 
   inputDisabled: {

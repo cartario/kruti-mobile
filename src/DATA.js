@@ -9,6 +9,7 @@ const events = [
     address: 'moscow',
     link: 'https://',
     checked: true, //поле должно меняться на false при добавлении и редактировании
+    comment: '', //для служебных комментариев, нужен для модерации при изменении флагов в базе, н-р new event/update event/removeEvent
   },
   {
     id: Math.random().toString(),
@@ -19,7 +20,8 @@ const events = [
     booked: false,  
     address: 'moscow',
     link: 'https://',
-    checked: true,    
+    checked: true,  
+    comment: '',  
   },
   {
     id: Math.random().toString(),
@@ -30,7 +32,8 @@ const events = [
     booked: true,       
     address: 'moscow',
     link: 'https://', 
-    checked: true,    
+    checked: true, 
+    comment: '',   
   },
   {
     id: Math.random().toString(),
@@ -41,7 +44,8 @@ const events = [
     booked: true,  
     address: 'moscow',
     link: 'https://',
-    checked: false,    
+    checked: false, 
+    comment: '',   
   }
 ];
 
