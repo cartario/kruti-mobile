@@ -4,10 +4,11 @@ const events = [
     title: 'All options',
     date: new Date().toJSON(),
     posterUrl: 'https://res.cloudinary.com/dwhyb2a2q/image/upload/v1612554121/events/allOptions.jpg',   
-    price: 'Бесплатно' ,
+    price: 'Бесплатно',
     booked: false,  
     address: 'moscow',
     link: 'https://',
+    checked: true, //поле должно меняться на false при добавлении и редактировании
   },
   {
     id: Math.random().toString(),
@@ -18,6 +19,7 @@ const events = [
     booked: false,  
     address: 'moscow',
     link: 'https://',
+    checked: true,    
   },
   {
     id: Math.random().toString(),
@@ -28,6 +30,7 @@ const events = [
     booked: true,       
     address: 'moscow',
     link: 'https://', 
+    checked: true,    
   },
   {
     id: Math.random().toString(),
@@ -38,6 +41,7 @@ const events = [
     booked: true,  
     address: 'moscow',
     link: 'https://',
+    checked: false,    
   }
 ];
 

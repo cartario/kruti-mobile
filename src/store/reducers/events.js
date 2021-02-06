@@ -6,12 +6,12 @@ const initialState = {
   isLoaded: false, 
 };
 
-export const reducer = (state=initialState, action) => {
-  const {type, payload} = action;
+export const eventsReducer = (state=initialState, action) => {
+  const {type, payload} = action; 
  
   switch(type){
     case ACTION_TYPES.LOAD_EVENTS:    
-      return {...state, items: payload};
+      return {...state, items: payload.filter((item)=>item.checked)};
     case ACTION_TYPES.SET_LOADER:
 
       return {...state, isLoaded: payload}
