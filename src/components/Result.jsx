@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {Operations} from '../store/operations/user';
 
 const Result = ({goBack}) => {
+  const dispatch = useDispatch();
+  const {level, totalScore} = useSelector(({user})=>user)
+  
 
   const INCREMENT_SCORES = {
     success: 12,
@@ -9,15 +14,13 @@ const Result = ({goBack}) => {
   }
 
   const handleSuccess = () => {
-    // dispatch(Operations.setScore(Number(score) + INCREMENT_SCORES.success));
-    console.log('ok');
-    goBack(false)
+    dispatch(Operations.updateUser({totalScore: INCREMENT_SCORES.success + totalScore}));    
+    goBack(false);
   };
 
   const handleFail = () => {
-    // dispatch(Operations.setScore(Number(score) + INCREMENT_SCORES.fail));
-    console.log('not ok');
-    goBack(false)
+    dispatch(Operations.updateUser({totalScore: INCREMENT_SCORES.fail + totalScore}))    
+    goBack(false);
   };
 
   return (

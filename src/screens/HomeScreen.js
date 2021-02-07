@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionCreators } from '../store/actions/lessons';
 import { ActionCreators as ActionCreatorsUser } from '../store/actions/user';
+import {Operations} from '../store/operations/user';
 
 import Level from '../components/Level';
 
@@ -26,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
 
   React.useEffect(() => {
     dispatch(ActionCreators.loadLessons());
-    dispatch(ActionCreatorsUser.loadUser());
+    dispatch(Operations.fetchUser());    
   }, []);
 
   React.useEffect(()=>{

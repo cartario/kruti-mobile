@@ -52,7 +52,8 @@ const events = [
 export const DATA = {
   user: {
     level: 1,
-    totalScore: 100
+    totalScore: 101,
+    isLoaded: false
   },
   lessons: [
     {

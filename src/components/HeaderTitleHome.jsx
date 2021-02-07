@@ -3,17 +3,20 @@ import { Text, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
 const HeaderTitleHome = () => {
+  
   const user = useSelector(({ user }) => user);
+
   return (
     <View style={styles.wrapTitle}>
       <View style={styles.levelCount}>
-        <Text style={{ color: 'white' }}>{user.level}</Text>
+        <Text style={{ color: 'white' }}>{user.isLoaded ? '...' : user.level}</Text>
       </View>
       <View style={styles.title}>
         <Text>Lessons</Text>
       </View>
+      
       <View style={{ ...styles.levelCount, ...styles.scoreCount }}>
-        <Text style={{ color: 'white' }}>{user.totalScore}</Text>
+        <Text style={{ color: 'white' }}>{user.isLoaded ? '...' : user.totalScore}</Text>
       </View>
     </View>
   );

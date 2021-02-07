@@ -1,9 +1,16 @@
 import {ACTION_TYPES} from '../types';
-import {DATA} from '../../DATA';
 
 export const ActionCreators = {
-  loadUser: () => ({
+  loadUser: (user) => ({
     type: ACTION_TYPES.LOAD_USER,
-    payload: DATA.user
+    payload: user
   }),
+  setLoader: (value) => ({
+    type: ACTION_TYPES.SET_USER_LOADER,
+    payload: value,
+  }),
+  updateUser: (obj) => ({
+    type: ACTION_TYPES.UPDATE_USER,
+    payload: obj
+  })
 }

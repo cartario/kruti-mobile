@@ -5,7 +5,6 @@ import DatePicker from '../components/DatePicker';
 
 const AppFieldsEvent = ({ editMode, form, setForm }) => {
   
-
   const copyToClipboard = async(value) => {
     await Clipboard.setString(value); 
   }
