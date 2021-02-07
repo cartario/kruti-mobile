@@ -60,7 +60,7 @@ export const DATA = {
       id: Math.random().toString(),
       title: 'IndianStep',
       price: '300',
-      booked: true,
+      booked: false,
       level: 1,
       tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
       practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'
@@ -69,7 +69,7 @@ export const DATA = {
       id: Math.random().toString(),
       title: 'sixstep',
       price: '400',
-      booked: true,
+      booked: false,
       level: 1,
       tutorialUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612427797/lessons/tutorials/swipes-tut_iz7mlx_p8krey.mp4',
       practiceUrl: 'https://res.cloudinary.com/dwhyb2a2q/video/upload/v1612424134/lessons/practice/swipes-loop_p5cz3j_silxci.mp4'

@@ -27,8 +27,8 @@ export const LessonsNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        options={{
-          headerTitle: ()=><HeaderTitleHome />,          
+        options={({route})=>({
+          headerTitle: ()=><HeaderTitleHome title={route.name}/>,          
           headerRight: () => {
             return (
               
@@ -45,13 +45,13 @@ export const LessonsNavigator = ({ navigation }) => {
               </HeaderButtons>
             );
           },
-        }}
+        })}
         name="Lessons"
         component={HomeScreen}
       />
       <Stack.Screen
         options={({navigation, route})=>({
-          title: route.params.lessonTitle,
+          headerTitle: ()=><HeaderTitleHome title={route.name} id={route.params.lessonId}/>,  
           headerRight: () => {
             
             return (<HeaderButtons HeaderButtonComponent={AppHeaderIcon}>

@@ -19,7 +19,7 @@ export const reducer = (state=initialState, action) => {
         }
         return item
       })
-      return {...state, items: lessons}
+      return {...state, items: lessons, bookedItems: lessons.filter((item)=>item.booked)}
     default:
       return state;
   }

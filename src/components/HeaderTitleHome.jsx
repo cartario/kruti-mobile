@@ -2,9 +2,14 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
-const HeaderTitleHome = () => {
+const HeaderTitleHome = ({title, id=null}) => { 
   
   const user = useSelector(({ user }) => user);
+  let lesson;
+
+  if(id){
+    lesson = useSelector(({lessons})=>lessons.items).find((item)=>item.id===id);    
+  }
 
   return (
     <View style={styles.wrapTitle}>
@@ -12,7 +17,7 @@ const HeaderTitleHome = () => {
         <Text style={{ color: 'white' }}>{user.isLoaded ? '...' : user.level}</Text>
       </View>
       <View style={styles.title}>
-        <Text>Lessons</Text>
+        <Text>{lesson? lesson.title:title}</Text>
       </View>
       
       <View style={{ ...styles.levelCount, ...styles.scoreCount }}>
