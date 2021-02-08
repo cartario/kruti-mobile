@@ -14,9 +14,7 @@ const BookedLessonsScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const {bookedItems: lessons, isLoaded} = useSelector(({ lessons }) => lessons);  
   const levels = [... new Set(lessons.map((item)=>item.level))];
-  
-  console.log(lessons)
-
+ 
   const handleOpen = (lesson) => {
     navigation.navigate('Lesson', {
       lessonId: lesson.id,
@@ -25,14 +23,9 @@ const BookedLessonsScreen = ({navigation}) => {
     });
   };
 
-  React.useEffect(() => {
-    // dispatch(ActionCreators.loadLessons());
+  React.useEffect(() => {    
     dispatch(Operations.fetchUser());    
   }, []);
-
-  React.useEffect(()=>{
-    // console.log(lessons)
-  }, [lessons]);
 
   if(!lessons.length){
     return (<View style={styles.center}><Text>в избранном пока ничего нет</Text></View>)

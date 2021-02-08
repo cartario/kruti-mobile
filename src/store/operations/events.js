@@ -51,6 +51,7 @@ export const Operations = {
   },
 
   addEventToUpdateList: (event)=>async(dispatch)=>{
+   
     try{
       const newEvent = {...event,        
         checked: false,
@@ -88,7 +89,18 @@ export const Operations = {
     catch(err){
       console.log(err)
     }
-  }
+  },
+
+  updateEventToggleBooked: (id) => async(dispatch) => {
+    try{
+      const event = await Http.get(`https://kruti-verti-mobile-default-rtdb.firebaseio.com/events/${id}.json`);
+      await Http.patch(`https://kruti-verti-mobile-default-rtdb.firebaseio.com/events/${id}.json`, {booked: !event.booked})
+      dispatch(ActionCreators.toggleBooked(id))
+    }
+    catch(err){
+      console.log(err)
+    }    
+  },
 
 
 }

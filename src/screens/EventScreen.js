@@ -32,7 +32,7 @@ const EventScreen = ({ route }) => {
           text: 'Сохранить',
           onPress: () => {
             setEditMode(false);
-            dispatch(Operations.addEventToUpdateList(event))
+            dispatch(Operations.addEventToUpdateList(form))
           },
           style: 'destructive',
         },

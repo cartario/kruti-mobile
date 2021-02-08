@@ -44,12 +44,10 @@ const CreateScreen = ({navigation}) => {
     );
   };
 
-
-
   return (<View style={styles.center}>
      <Text style={styles.header}>Добавить новое мероприятие</Text>
     <Button title='вернуться назад' onPress={()=>navigation.goBack()}/>
-    <AppFieldsEvent editMode={!isLoaded} form={form} setForm={setForm}/>
+    <AppFieldsEvent editMode={!isLoaded} form={form} setForm={setForm} mode='create'/>
     {isSuccessAdded && <Text style={styles.tost}>Успешно отправлено</Text>}
     <Button title={isLoaded ? 'Добавление...' : 'Добавить'} onPress={handleSave} disabled={isValid || isLoaded}/>
     <Button title='Очистить' color={THEME.DANGER_COLOR} onPress={()=>setForm(initialData)}/>

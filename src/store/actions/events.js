@@ -6,7 +6,7 @@ export const ActionCreators = {
     payload: events,
   }),
   toggleBooked: (id) => ({
-    // type: ACTION_TYPES.TOGGLE_BOOKED_LESSONS,
+    type: ACTION_TYPES.TOGGLE_BOOKED_EVENT,
     payload: id,
   }),
   setLoader: (value) => ({

@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import Clipboard from 'expo-clipboard';
 import DatePicker from '../components/DatePicker';
 
-const AppFieldsEvent = ({ editMode, form, setForm }) => {
+const AppFieldsEvent = ({ editMode, form, setForm, mode='edit' }) => {
   
   const copyToClipboard = async(value) => {
     await Clipboard.setString(value); 
@@ -12,7 +12,7 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
   return (
     <View>
       <View style={styles.textWrap}>
-        {editMode && (
+        {editMode && mode==='edit'&& (
           <DatePicker
             initialDate={form.date}
             onDateChange={(date) => setForm({ ...form, date: date.toJSON() })}
@@ -49,21 +49,23 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
           </View>
         )}
 
+       {mode==='edit' &&
         <View style={styles.field}>
-          <Text style={styles.label}>Адрес</Text>
-          <TextInput
-            style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
-            placeholder="введите текст"
-            autoCapitalize="none"
-            autoCorrect={false}
-            maxLength={64}
-            defaultValue={form.address}
-            onChangeText={(text) => setForm({ ...form, address: text })}
-            editable={editMode}
-          />
-        </View>
+        <Text style={styles.label}>Адрес</Text>
+        <TextInput
+          style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
+          placeholder="введите текст"
+          autoCapitalize="none"
+          autoCorrect={false}
+          maxLength={64}
+          defaultValue={form.address}
+          onChangeText={(text) => setForm({ ...form, address: text })}
+          editable={editMode}
+        />
+      </View>
+       }
 
-        <View style={styles.field}>
+        {mode==='edit' &&<View style={styles.field}>
           <Text style={styles.label}>Стоимость участия</Text>
           <TextInput
             style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
@@ -75,7 +77,7 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
             onChangeText={(text) => setForm({ ...form, price: text })}
             editable={editMode}
           />
-        </View>
+        </View>}
 
         <View style={styles.field}>
           {/* <Text style={styles.label}>Ссылка*</Text> */}
@@ -86,9 +88,8 @@ const AppFieldsEvent = ({ editMode, form, setForm }) => {
           <Text style={styles.btnLink}>Скопировать ссылку</Text>
         </TouchableOpacity>
           <TextInput
-            style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}
-            multiline
-            placeholder="введите текст"
+            style={editMode ? styles.input : { ...styles.input, ...styles.inputDisabled }}           
+            placeholder="вставьте ссылку сюда"
             autoCapitalize="none"
             autoCorrect={false}
             maxLength={64}

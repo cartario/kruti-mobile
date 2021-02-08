@@ -18,8 +18,8 @@ const Level = ({ lessons , title, onOpen}) => {
         <Text>Level {title}</Text>
       </View>
       <View style={styles.list}>
-        {lessonsWithColors.map((item) => (
-          <Lesson {...item} onOpen={() => onOpen(item)} key={item.id} levelNumber={title}/>
+        {lessonsWithColors.map((item, index) => (
+          <Lesson {...item} onOpen={() => onOpen(item)} key={item.id} levelNumber={title} currentIndex={index} lessonsLength={lessonsWithColors.length}/>
         ))}
       </View>
     </View>
