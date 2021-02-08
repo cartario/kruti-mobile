@@ -15,8 +15,16 @@ export const Operations = {
       // const newEvents = Object.keys(events).map((key)=>({
       //   ...events[key],
       //   id: key,
-      // }))      
-      dispatch(ActionCreators.loadUser(adaptedUser));      
+      // }))  
+      
+      const lessons = await Http.get('https://kruti-verti-mobile-default-rtdb.firebaseio.com/lessons.json');
+      // const scoreLessons = Object.keys(lessons).map((key)=>({
+      //   id: key,
+      //   score: 0
+      // }));
+
+      const scoreLessons = await Http.get('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB/scoreLessons.json');      
+      dispatch(ActionCreators.loadUser({...adaptedUser, scoreLessons}));      
     } 
     catch(err){
       console.log(err)
@@ -26,13 +34,13 @@ export const Operations = {
     }
   },
 
-  updateUser: (obj) => async(dispatch) => {
+  updateUser: ({totalScore}) => async(dispatch) => {
     dispatch(ActionCreators.setLoader(true)); 
-
+    
     try{
       const user = await Http.patch('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB.json', 
-      obj)
-      dispatch(ActionCreators.updateUser(obj)); 
+      {totalScore})
+      dispatch(ActionCreators.updateUser({totalScore})); 
 
     }
     catch(err){

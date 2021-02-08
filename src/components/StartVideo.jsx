@@ -41,7 +41,7 @@ const StartVideo = ({ lesson , goBack}) => {
           style={{ width: 300, height: 300 }}
         />
         <AppAudio />
-        {showResult&&<Result goBack={goBack}/>}
+        {showResult&&<Result goBack={goBack} lessonId={lesson.id}/>}
         </>
       )}
     </View>

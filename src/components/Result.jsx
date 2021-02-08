@@ -3,10 +3,12 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Operations} from '../store/operations/user';
 
-const Result = ({goBack}) => {
+const Result = ({goBack, lessonId}) => {
   const dispatch = useDispatch();
-  const {level, totalScore} = useSelector(({user})=>user)
+  const {level, totalScore, scoreLessons} = useSelector(({user})=>user)
   
+  const score = scoreLessons.find((item)=>item.id===lessonId)
+  console.log(score.score)
 
   const INCREMENT_SCORES = {
     success: 12,
@@ -14,12 +16,12 @@ const Result = ({goBack}) => {
   }
 
   const handleSuccess = () => {
-    dispatch(Operations.updateUser({totalScore: INCREMENT_SCORES.success + totalScore}));    
+    dispatch(Operations.updateUser({id: lessonId, score: score.score + INCREMENT_SCORES.success, totalScore: INCREMENT_SCORES.success + totalScore}));    
     goBack(false);
   };
 
   const handleFail = () => {
-    dispatch(Operations.updateUser({totalScore: INCREMENT_SCORES.fail + totalScore}))    
+    dispatch(Operations.updateUser({id: lessonId, score: score.score + INCREMENT_SCORES.fail, totalScore: INCREMENT_SCORES.fail + totalScore}))    
     goBack(false);
   };
 

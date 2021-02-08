@@ -4,11 +4,15 @@ import { useSelector } from 'react-redux';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { THEME } from '../theme';
 
-const Lesson = ({ id, price, title, onOpen, color, levelNumber , lessonsLength}) => {
-  const { level, totalScore } = useSelector(({ user }) => user);
+const Lesson = ({ id, price, title, onOpen, color, levelNumber }) => {
+  const { level, totalScore , scoreLessons} = useSelector(({ user }) => user);
   const disabled = level < levelNumber;
-  const progressPercent  = 50;
-  console.log(lessonsLength)
+
+  const score = scoreLessons.find((item)=>item.id===id);
+  
+  if(!score){
+    return null;
+  }
 
   return (
     <View>
@@ -36,7 +40,7 @@ const Lesson = ({ id, price, title, onOpen, color, levelNumber , lessonsLength})
           style={{ backgroundColor: color, borderRadius: 50 }}
           size={80}
           width={5}
-          fill={progressPercent}
+          fill={score.score / 60 * 100}
           rotation={0}
           tintColor={THEME.MAIN_COLOR}
           onAnimationComplete={() => console.log('onAnimationComplete')}

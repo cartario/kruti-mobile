@@ -4,11 +4,12 @@ const initialState = {
   level: null,
   totalScore: null,
   isLoaded: false, 
+  scoreLessons: []
 };
 
 export const reducer = (state=initialState, action) => {
   const {type, payload} = action;
-  
+    
   switch(type){
     case ACTION_TYPES.LOAD_USER:    
       return {...state, ...payload};
