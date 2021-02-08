@@ -28,7 +28,7 @@ export const HomeTabNavigator = () => {
       },
     })}
     tabBarOptions={{
-      activeTintColor: THEME.ORANGE_COLOR,
+      activeTintColor: THEME.MAIN_COLOR,
       inactiveTintColor: 'gray',
     }}
     >

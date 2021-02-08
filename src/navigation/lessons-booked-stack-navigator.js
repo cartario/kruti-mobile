@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import {useDispatch} from 'react-redux';
 import BookedLessonsScreen from '../screens/BookedLessonsScreen';
@@ -9,7 +9,8 @@ import InfoModal from '../components/InfoModal';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { AppHeaderIcon } from '../components/AppHederIcon';
 import HeaderTitleHome from '../components/HeaderTitleHome';
-import {ActionCreators} from '../store/actions/lessons';
+import {Operations} from '../store/operations/lessons';
+import {THEME} from '../theme';
 
 
 const Stack = createStackNavigator();
@@ -19,9 +20,8 @@ export const BookedLessonsNavigator = ({ navigation }) => {
  
   const [modal, setModal] = React.useState(false); //исправить на route.params
 
-  const handleToggleBooked = (id) => {
-    // console.log('click booked, id:', id)//dispatch here
-    dispatch(ActionCreators.toggleBooked(id))
+  const handleToggleBooked = (id) => {    
+    dispatch(Operations.updateLessonToggleBooked(id))
   }
 
   return (
@@ -52,6 +52,8 @@ export const BookedLessonsNavigator = ({ navigation }) => {
       />
       <Stack.Screen
         options={({navigation, route})=>({
+          headerTintColor: THEME.MAIN_COLOR,
+          headerBackTitle: 'Избранное',
           headerTitle: ()=><HeaderTitleHome title={route.name} id={route.params.lessonId}/>,  
           headerRight: () => {
             

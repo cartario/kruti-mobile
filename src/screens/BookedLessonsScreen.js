@@ -26,7 +26,7 @@ const BookedLessonsScreen = ({navigation}) => {
   };
 
   React.useEffect(() => {
-    dispatch(ActionCreators.loadLessons());
+    // dispatch(ActionCreators.loadLessons());
     dispatch(Operations.fetchUser());    
   }, []);
 
@@ -44,9 +44,10 @@ const BookedLessonsScreen = ({navigation}) => {
   
   return (
     <View style={styles.center}>
-      <Text>LessonsScreen</Text>
+      {/* <Text>LessonsScreen</Text> */}
       
      <FlatList 
+      style={{marginTop:20}}
       data={levels}
       keyExtractor={(levels)=>Math.random().toString()}
       renderItem={({item})=><Level title={item} lessons={lessons.filter((lesson)=>lesson.level===item)} onOpen={handleOpen}/>}

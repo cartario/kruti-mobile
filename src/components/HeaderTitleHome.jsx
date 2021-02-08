@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
+import { THEME } from '../theme';
 
 const HeaderTitleHome = ({title, id=null}) => { 
   
@@ -17,7 +18,7 @@ const HeaderTitleHome = ({title, id=null}) => {
         <Text style={{ color: 'white' }}>{user.isLoaded ? '...' : user.level}</Text>
       </View>
       <View style={styles.title}>
-        <Text>{lesson? lesson.title:title}</Text>
+        <Text style={styles.titleText}>{lesson? lesson.title:title==='BookedLessons' ? 'Избранное' : title}</Text>
       </View>
       
       <View style={{ ...styles.levelCount, ...styles.scoreCount }}>
@@ -41,13 +42,18 @@ const styles = StyleSheet.create({
   },
   scoreCount: {
     backgroundColor: 'purple',
-    borderRadius: 0,
+    borderRadius: 5,
   },
   title: {
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
   },
+  titleText: {
+    color: THEME.MAIN_COLOR,
+    fontSize: 16,
+    fontFamily: 'open-bold'
+  }
 });
 
 export default HeaderTitleHome;
