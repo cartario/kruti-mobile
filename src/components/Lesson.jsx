@@ -39,10 +39,10 @@ const Lesson = ({ id, price, title, onOpen, color, levelNumber }) => {
         <AnimatedCircularProgress
           style={{ backgroundColor: color, borderRadius: 50 }}
           size={80}
-          width={5}
+          width={7}
           fill={score.score / 60 * 100}
           rotation={0}
-          tintColor={THEME.MAIN_COLOR}
+          tintColor={'tomato'}
           onAnimationComplete={() => console.log('onAnimationComplete')}
           backgroundColor="grey"
         >
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
   title: {
     padding: 10,
     textAlign: 'center',
+    fontFamily: 'open-bold',
+    color: '#fff'
   },
   disabled: {
     opacity: 0.2,

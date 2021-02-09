@@ -16,12 +16,12 @@ const Result = ({goBack, lessonId}) => {
   }
 
   const handleSuccess = () => {
-    dispatch(Operations.updateUser({id: lessonId, score: score.score + INCREMENT_SCORES.success, totalScore: INCREMENT_SCORES.success + totalScore}));    
+    dispatch(Operations.updateUser({lessonId, score: score.score + INCREMENT_SCORES.success, totalScore: INCREMENT_SCORES.success + totalScore}));    
     goBack(false);
   };
 
   const handleFail = () => {
-    dispatch(Operations.updateUser({id: lessonId, score: score.score + INCREMENT_SCORES.fail, totalScore: INCREMENT_SCORES.fail + totalScore}))    
+    dispatch(Operations.updateUser({lessonId, score: score.score + INCREMENT_SCORES.fail, totalScore: INCREMENT_SCORES.fail + totalScore}))    
     goBack(false);
   };
 

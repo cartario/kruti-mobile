@@ -34,13 +34,25 @@ export const Operations = {
     }
   },
 
-  updateUser: ({totalScore}) => async(dispatch) => {
+  updateUser: ({lessonId, score, totalScore}) => async(dispatch) => {
     dispatch(ActionCreators.setLoader(true)); 
     
     try{
+      const scoreLessons = await Http.get('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB/scoreLessons.json');  
+      const newScoreLessons = scoreLessons.map((lesson)=>{
+
+        if(lesson.id===lessonId){
+          lesson.score = score;
+        }
+
+        return lesson;
+      });
+
+      console.log(newScoreLessons)
+
       const user = await Http.patch('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB.json', 
-      {totalScore})
-      dispatch(ActionCreators.updateUser({totalScore})); 
+      {totalScore, scoreLessons: newScoreLessons})
+      dispatch(ActionCreators.updateUser({lessonId, score, totalScore})); 
 
     }
     catch(err){
