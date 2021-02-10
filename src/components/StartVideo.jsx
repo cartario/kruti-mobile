@@ -45,7 +45,7 @@ const StartVideo = ({ lesson, goBack }) => {
             color: 'grey'            
             }}>            
             Начинаем тренировку! Повторяй за тренером</Text>
-          <Text>{lesson.title}</Text>
+          {/* <Text>{lesson.title}</Text> */}
         </View>
       )}
 
