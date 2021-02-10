@@ -12,14 +12,16 @@ const audioUrls= [
 
 const RANDOM_AUDIO_URL = audioUrls[Math.floor(Math.random() * audioUrls.length)];
 
-const AppAudio = () => {
+const AppAudio = ({onReady}) => {
   const [sound, setSound] = React.useState();
+
+  
 
   const playSound = async () => {
     // console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync({ uri: RANDOM_AUDIO_URL });
     setSound(sound);
-
+    
     // console.log('Playing Sound');
     await sound.playAsync();
   }
@@ -33,9 +35,14 @@ const AppAudio = () => {
       ? () => {
           // console.log('Unloading Sound');
           sound.unloadAsync();
+          
         }
       : undefined;
   }, [sound]);
+
+  if(sound){
+    // onReady(true)
+  }
 
   return (
     <View>

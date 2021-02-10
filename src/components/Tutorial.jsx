@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet , Dimensions} from 'react-native';
 import { Video } from 'expo-av';
 
 const Tutorial = ({ lesson }) => {
+  const windowWidth = Dimensions.get('window').width;
   return (
     <View>
       
@@ -14,7 +15,7 @@ const Tutorial = ({ lesson }) => {
         resizeMode="contain"
         shouldPlay
         isLooping
-        style={{ width: 300, height: 300 }}
+        style={{ width: windowWidth-2*30, height: windowWidth }}
       />
     </View>
   );

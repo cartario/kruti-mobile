@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    padding: 15,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: THEME.ORANGE_COLOR ,
-    borderRadius: 20,
+  openButton: {    
     padding: 10,
-    elevation: 2
+    elevation: 2,
+    backgroundColor: THEME.ORANGE_COLOR ,
+    borderRadius: 20,    
   },
   textStyle: {
     color: "white",

@@ -43,7 +43,7 @@ const Lesson = ({ id, price, title, onOpen, color, levelNumber }) => {
           fill={score.score / 60 * 100}
           rotation={0}
           tintColor={'tomato'}
-          onAnimationComplete={() => console.log('onAnimationComplete')}
+          // onAnimationComplete={() => console.log('onAnimationComplete')}
           backgroundColor="grey"
         >
           {(fill) => <Text style={styles.title}>{title}</Text>}

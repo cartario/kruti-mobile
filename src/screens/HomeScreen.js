@@ -25,28 +25,31 @@ const HomeScreen = ({ navigation }) => {
     dispatch(Operations.fetchUser());
   }, []);
 
-  if(!lessons.length){
-    return <View style={styles.center}><Text>Пока ничего нет</Text></View>
-  }
+  // if(!lessons.length){
+  //   return <View style={styles.center}><Text>Пока ничего нет</Text></View>
+  // }
 
   if (isLoaded) {
     return <AppLoader />;
   }
 
+
   return (
     <View style={styles.center}>
+      {lessons.length ? 
       <FlatList
-        style={{ marginTop: 20 }}
-        data={levels}
-        keyExtractor={(levels) => Math.random().toString()}
-        renderItem={({ item }) => (
-          <Level
-            title={item}
-            lessons={lessons.filter((lesson) => lesson.level === item)}
-            onOpen={handleOpen}
-          />
-        )}
-      />
+      style={{ marginTop: 20 }}
+      data={levels}
+      keyExtractor={(levels) => Math.random().toString()}
+      renderItem={({ item }) => (
+        <Level
+          title={item}
+          lessons={lessons.filter((lesson) => lesson.level === item)}
+          onOpen={handleOpen}          
+        />
+      )}
+    />
+      : <View style={styles.center}><Text>Пока ничего нет</Text></View>}
     </View>
   );
 };

@@ -21,7 +21,7 @@ const Timer = ({ time, handler }) => {
     return () => clearInterval(timer);
   }, [count]);
 
-  return <Text>{`00:${count < 10 ? `0${count}` : count}`}</Text>;
+  return <Text style={{fontSize: 50, textAlign: 'center', fontWeight: 'bold'}}>{`00:${count < 10 ? `0${count}` : count}`}</Text>;
 };
 
 export default Timer;
