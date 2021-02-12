@@ -11,6 +11,7 @@ import {useSelector} from 'react-redux';
 import Tutorial from '../components/Tutorial';
 import StartVideo from '../components/StartVideo';
 import {THEME} from '../theme';
+import AppLoader from '../components/AppLoader';
 
 const LessonModal = ({title, id, type='tutorial', goBack}) => {
   const [modalVisible, setModalVisible] = useState(false);  

@@ -31,6 +31,7 @@ const HeaderTitleHome = ({title, id=null}) => {
 const styles = StyleSheet.create({
   wrapTitle: {
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   levelCount: {
     alignItems: 'center',

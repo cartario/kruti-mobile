@@ -17,7 +17,8 @@ export const Operations = {
   fetchLessons: ()=>async (dispatch)=>{
     dispatch(ActionCreators.setLoader(true));
     try{
-      const response = await Http.get(`${BASE_URL}/lessons.json`);      
+      const response = await Http.get(`${BASE_URL}/lessons.json`);  
+        
       const adaptedLessons = adapter(response);    
       dispatch(ActionCreators.loadLessons(adaptedLessons));  
     } 

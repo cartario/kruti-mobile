@@ -4,16 +4,26 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 const DatePicker = ({initialDate, onDateChange}) => {
   const [date, setDate] = useState(new Date(initialDate)); 
+  const [show, setShow] = useState(false);
+
+  const toggleShowPicker = () => {
+    setShow(!show)
+  }
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;   
-    setDate(currentDate);    
+    setDate(currentDate);   
+    setShow(Platform.OS === 'ios'); 
     onDateChange(currentDate);
   };
 
   return (
     <View style={styles.container}>
-      <DateTimePicker
+      <View>
+        <Button onPress={toggleShowPicker} title={show? 'Скрыть дату' : 'Редактировать дату'} />
+      </View>
+      {show && (<>
+        <DateTimePicker
         testID="dateTimePicker"
         value={date}
         mode={'date'}
@@ -30,6 +40,7 @@ const DatePicker = ({initialDate, onDateChange}) => {
         display="default"
         onChange={onChange}
       />
+      </>)}
     </View>
   );
 };

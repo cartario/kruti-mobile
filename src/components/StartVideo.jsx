@@ -6,6 +6,7 @@ import Timer from './Timer';
 import Result from './Result';
 import AppLoader from '../components/AppLoader';
 
+
 const READY_TIME = 5000;
 const PRACTICE_TIME = 5000;
 

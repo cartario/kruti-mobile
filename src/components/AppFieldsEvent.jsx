@@ -3,6 +3,14 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import Clipboard from 'expo-clipboard';
 import DatePicker from '../components/DatePicker';
 
+
+
+const getDateFormat = (date) => {
+  const months = ['янв','фев','март','апрель','май','июнь','июль','авг','сент','окт','ноя','дек'];  
+  const dateObj = new Date(date);
+  return `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getFullYear()}`
+}
+
 const AppFieldsEvent = ({ editMode, form, setForm, mode='edit' }) => {
   
   const copyToClipboard = async(value) => {
@@ -19,6 +27,10 @@ const AppFieldsEvent = ({ editMode, form, setForm, mode='edit' }) => {
           />
         )}
 
+<View style={{alignItems: 'center'}}>
+      <Text style={{fontFamily: 'open-bold'}}>{getDateFormat(form.date)}</Text>
+    </View>
+
         <View style={styles.field}>
           <Text style={styles.label}>Название*</Text>
           <TextInput
@@ -33,7 +45,7 @@ const AppFieldsEvent = ({ editMode, form, setForm, mode='edit' }) => {
           />
         </View>
 
-        {!editMode && (
+        {/* {!editMode && (
           <View style={styles.field}>
             <Text style={styles.label}>Дата</Text>
             <TextInput
@@ -47,7 +59,7 @@ const AppFieldsEvent = ({ editMode, form, setForm, mode='edit' }) => {
               editable={editMode}
             />
           </View>
-        )}
+        )} */}
 
        {mode==='edit' &&
         <View style={styles.field}>

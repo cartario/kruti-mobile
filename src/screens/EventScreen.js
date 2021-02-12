@@ -5,7 +5,7 @@ import { THEME } from '../theme';
 import AppFieldsEvent from '../components/AppFieldsEvent';
 import {Operations} from '../store/operations/events';
 
-const EventScreen = ({ route }) => {
+const EventScreen = ({ navigation, route }) => {
   const eventId = route.params.eventId;
   const event = useSelector(({ events }) => events.items).find((item) => item.id === eventId);
   const [form, setForm] = React.useState(event);
@@ -53,7 +53,7 @@ const EventScreen = ({ route }) => {
         {
           text: 'Удалить',
           onPress: ()=>{
-            dispatch(Operations.addEventToRemoveList(event))
+            dispatch(Operations.addEventToRemoveList(event));                      
           },
           style: 'destructive',
         },
@@ -61,6 +61,15 @@ const EventScreen = ({ route }) => {
       { cancelable: false },
     );
   };
+
+  React.useEffect(()=>{
+    if(isSuccessAdded){
+      const timer = setTimeout(()=>{
+        navigation.goBack()
+      }, 2500);
+      //     
+    }
+  }, [isSuccessAdded])
 
   if (!event) {
     return null;
