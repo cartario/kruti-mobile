@@ -1,4 +1,5 @@
 import {ActionCreators} from '../actions/user';
+import {ActionCreators as ActionsCreatorsEvents} from '../actions/events';
 import {Http} from '../../http';
 import {DATA} from '../../DATA';
 
@@ -47,8 +48,7 @@ export const Operations = {
 
         return lesson;
       });
-
-      console.log(newScoreLessons)
+      
 
       const user = await Http.patch('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB.json', 
       {totalScore, scoreLessons: newScoreLessons})
@@ -62,4 +62,25 @@ export const Operations = {
       dispatch(ActionCreators.setLoader(false));
     }
   },
+  postFeedback: (text) => async(dispatch) => {
+    dispatch(ActionCreators.setLoader(true)); 
+
+    try {
+      await Http.post('https://kruti-verti-mobile-default-rtdb.firebaseio.com/user/-MSwuIRD2WFnv33p85mB/feedbacks.json',
+        {text}
+      ) 
+      dispatch(ActionsCreatorsEvents.setSuccessAdded(true));
+
+      setTimeout(()=>{ //поменять на tost
+        dispatch(ActionsCreatorsEvents.setSuccessAdded(null));
+      },2000)
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    finally{
+      dispatch(ActionCreators.setLoader(false));
+    }
+  }
 }

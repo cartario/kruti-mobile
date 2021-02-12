@@ -12,5 +12,6 @@ export const ActionCreators = {
   updateUser: (obj) => ({
     type: ACTION_TYPES.UPDATE_USER,
     payload: obj
-  })
+  }),
+  
 }

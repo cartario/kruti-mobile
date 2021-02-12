@@ -29,7 +29,7 @@ const MainNavigation = ({navigation}) => {
       >
         <Drawer.Screen name="Home" component={HomeTabNavigator} />
         <Drawer.Screen name="Events" component={EventsTabNavigator} />
-        <Drawer.Screen name="Locations" component={LocationsTabNavigator} />
+        {/* <Drawer.Screen name="Locations" component={LocationsTabNavigator} /> */}
         <Drawer.Screen name="Create" component={CreateScreen} />
         <Drawer.Screen name="About" component={AboutScreen} />
       </Drawer.Navigator>

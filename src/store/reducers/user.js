@@ -4,7 +4,8 @@ const initialState = {
   level: null,
   totalScore: null,
   isLoaded: false, 
-  scoreLessons: []
+  scoreLessons: [],
+  feedbacks: []
 };
 
 export const reducer = (state=initialState, action) => {
@@ -27,7 +28,8 @@ export const reducer = (state=initialState, action) => {
         return lesson;
       })
 
-      return {...state, totalScore, scoreLessons}
+      return {...state, totalScore, scoreLessons};
+    
     default:
       return state;
   }
